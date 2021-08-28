@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="Wpf.FoodConsume"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Wpf.CartesianChart.Funnel_Chart"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" Width="1203.217">
+    <Grid Background="#00ff00ff">
+        <!-- Credit https://dribbble.com/shots/2673159-Funnel-UI-concept-->
+        <!-- Icons http://www.flaticon.com/authors/madebyoliver -->
+        <Grid.Resources>
+            <Style TargetType="lvc:LineSeries">
+                <Setter Property="PointGeometry" Value="{x:Null}"/>
+                <Setter Property="AreaLimit" Value="0"/>
+                <Setter Property="StrokeThickness" Value="0" />
+                <Setter Property="Fill" Value="#F7819F"></Setter>
+            </Style>
+            <Style TargetType="lvc:Axis">
+                <Setter Property="IsEnabled" Value="False"/>
+                <Setter Property="ShowLabels" Value="False"></Setter>
+            </Style>
+        </Grid.Resources>
+        <lvc:CartesianChart Hoverable="False" DataTooltip="{x:Null}" Margin="0,0,10.2,0">
+            <lvc:CartesianChart.Series>
+                <lvc:LineSeries Values="{Binding DataSeries_up}"/>
+                <lvc:LineSeries Values="{Binding DataSeries_down}"/>
+                
+                <!--Shadows-->
+                <lvc:LineSeries Values="{Binding Shadow_1_up}" Fill="#FE2E64" Panel.ZIndex="-1"/>
+                <lvc:LineSeries Values="{Binding Shadow_1_down}" Fill="#FE2E64" Panel.ZIndex="-1"/>
+
+                <lvc:LineSeries Values="{Binding Shadow_2_up}" Fill="#8A0829" Panel.ZIndex="-2"/>
+                <lvc:LineSeries Values="{Binding Shadow_2_down}" Fill="#8A0829" Panel.ZIndex="-2"/>
+            </lvc:CartesianChart.Series>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis>
+                    <lvc:Axis.Sections>
+                        <lvc:AxisSection Value="1.5" Stroke="#25FFFFFF" StrokeThickness="5" Panel.ZIndex="1" />
+                        <lvc:AxisSection Value="3.5" Stroke="#25FFFFFF" StrokeThickness="5" Panel.ZIndex="1" />
+                    </lvc:Axis.Sections>
+                </lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.VisualElements>
+                <lvc:VisualElement X="0.75" Y="135" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <lvc:VisualElement.UIElement>
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="resources/user.png"></Image>
+                            <TextBlock Foreground="Black" FontSize="10" FontWeight="Bold">摄入食物的总能量</TextBlock>
+                        </StackPanel>
+                    </lvc:VisualElement.UIElement>
+                </lvc:VisualElement>
+                <lvc:VisualElement X="0.75" Y="-130" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <lvc:VisualElement.UIElement>
+                        <TextBlock Foreground="Black" FontSize="10" Text="{Binding Total}"></TextBlock>
+                    </lvc:VisualElement.UIElement>
+                </lvc:VisualElement>
+
+                <lvc:VisualElement X="2.5" Y="135" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <lvc:VisualElement.UIElement>
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="resources/view.png"></Image>
+                            <TextBlock Foreground="Black" FontSize="10" FontWeight="Bold">基础代谢后剩余</TextBlock>
+                        </StackPanel>
+                    </lvc:VisualElement.UIElement>
+                </lvc:VisualElement>
+                <lvc:VisualElement X="2.5" Y="-130" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <lvc:VisualElement.UIElement>
+                        <TextBlock Foreground="Black" FontSize="10" Text="{Binding Reduce}"></TextBlock>
+                    </lvc:VisualElement.UIElement>
+                </lvc:VisualElement>
+
+                <lvc:VisualElement X="4.25" Y="135" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <lvc:VisualElement.UIElement>
+                        <StackPanel Orientation="Vertical">
+                            <Image Source="resources/fingerprint.png"></Image>
+                            <TextBlock Foreground="Black" FontSize="10" FontWeight="Bold">运动消耗后剩余</TextBlock>
+                        </StackPanel>
+                    </lvc:VisualElement.UIElement>
+                </lvc:VisualElement>
+                <lvc:VisualElement X="4.25" Y="-130" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <lvc:VisualElement.UIElement>
+                        <TextBlock Foreground="Black" FontSize="10" Text="{Binding Final}"></TextBlock>
+                    </lvc:VisualElement.UIElement>
+                </lvc:VisualElement>
+            </lvc:CartesianChart.VisualElements>
+        </lvc:CartesianChart>
+    </Grid>
+</UserControl>
