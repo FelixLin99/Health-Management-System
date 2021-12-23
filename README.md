@@ -85,3 +85,10 @@
     <img src="https://github.com/FelixLin99/Health-Management-System/raw/master/img/health/4.jpg" height=300><br>
     </div> 
 <br>
+
+# Database Design
+    
+<div align=center>
+    <img src="https://github.com/FelixLin99/Health-Management-System/raw/master/img/database.jpg" height=500>
+    </div> 
+
