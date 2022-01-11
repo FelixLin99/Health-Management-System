@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Data;
 using LiveCharts;
 
+// 嘿嘿
 namespace DAL
 {
     public class HealthService
