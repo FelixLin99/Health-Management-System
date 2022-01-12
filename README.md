@@ -2,7 +2,7 @@
 
 <p align="center">
     <img src="https://github.com/FelixLin99/Health-Management-System/raw/master/img/health/1.jpg" 
-         width="61%">
+         width="62%">
 </p>
 
 <p align="center">"<i>Want to record your health condition?</i>"</p>
